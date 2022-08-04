@@ -1,0 +1,28 @@
+framework:
+    cache:
+        # Put the unique name of your app here: the prefix seed
+        # is used to compute stable namespaces for cache keys.
+        prefix_seed: "private"
+
+        # The app cache caches to the filesystem by default.
+        # Other options include:
+
+        # Redis
+        app: my.dedicated.cache
+        default_redis_provider: "%env(REDIS_DNS)%"
+
+        # Namespaced pools use the above "app" backend by default
+        pools:
+            my.dedicated.cache:
+                adapter: app.cache_shared_redis_adapter
+                default_lifetime: "%env(int:REDIS_TTL)%"
+
+services:
+    Symfony\Component\Cache\Marshaller\DeflateMarshaller:
+        decorates: cache.default_marshaller
+        arguments: ['@Symfony\Component\Cache\Marshaller\DeflateMarshaller.inner']
+    
+    app.cache_shared_redis_adapter:
+        parent: 'cache.adapter.redis'
+        tags:
+            - { name: 'cache.pool', namespace: 'private' }

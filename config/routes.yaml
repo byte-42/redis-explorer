@@ -1,0 +1,12 @@
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+
+search:
+    path: /search
+    controller: App\Controller\SearchController::index
+
+get:
+    path: /get
+    controller: App\Controller\RedisGetItemController::index
+

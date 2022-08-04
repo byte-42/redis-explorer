@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com/3.1.4"></script>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %} 
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <style>
+        body {
+            padding: 0 1.5rem;
+        }
+        .wrapper {
+            font-family: Inter, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+        .wrapper .app-name {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .wrapper div.input-form-group {
+            max-width: 700px;
+        }
+        .wrapper input:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        .wrapper pre {
+            background: rgb(249, 250, 251);
+            border: solid 1px #e2e2e2;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+        }
+    </style>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
