@@ -25,7 +25,7 @@
             <ul class="mt-2">
             {% for key in list %}
                 <li class="text-sm hover:underline cursor-pointer text-blue-700">
-                    <a class="py-1 inline-block" href="/get?query={{query}}&key={{key | replace({'gql:': ''})}}">{{ key | replace({'gql:': ''}) }}</a>
+                    <a class="py-1 inline-block" href="/get?query={{query}}&key={{key | replace({'private:': ''})}}">{{ key | replace({'private:': ''}) }}</a>
                 </li>
             {% endfor %}
             </ul>   

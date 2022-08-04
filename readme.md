@@ -4,7 +4,8 @@ A lightweight redis explorer to quickly search through keys.
 
 ### Usage
 ```
-docker
+# docker
+docker run byte42/redis-explorer:latest -p 8000:8000
 ```
 
 ### Develop
@@ -27,5 +28,4 @@ docker build . -t redis-explorer:latest
 # publish image
 docker image tag redis-explorer:latest byte42/redis-explorer:latest
 docker image push byte42/redis-explorer:latest
-
 ```
